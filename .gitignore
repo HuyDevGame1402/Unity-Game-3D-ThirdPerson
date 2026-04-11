@@ -1,0 +1,36 @@
+# --- Unity Default Ignore ---
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# --- Visual Studio / IDE Ignore ---
+.vs/
+.gradle/
+ExportedObj/
+.directory
+*.csproj
+*.unitypackage
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svntmp
+
+# --- OS Ignore ---
+.DS_Store
+Thumbs.db
+
+# --- Custom Ignore for this project ---
+# Loại bỏ thư mục Assets nặng (Flooded_Grounds)
+Assets/Flooded_Grounds/
+Assets/Flooded_Grounds.meta
+
+# Nếu thư mục đó nằm trong một thư mục con khác, bạn có thể dùng:
+# **/Flooded_Grounds/
