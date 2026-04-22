@@ -31,6 +31,8 @@ Thumbs.db
 # Loại bỏ thư mục Assets nặng (Flooded_Grounds)
 Assets/Flooded_Grounds/
 Assets/Flooded_Grounds.meta
+Assets/ZombieAssets/
+Assets/ZombieAssets.meta
 
 # Nếu thư mục đó nằm trong một thư mục con khác, bạn có thể dùng:
 # **/Flooded_Grounds/

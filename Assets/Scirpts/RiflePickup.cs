@@ -7,10 +7,14 @@ public class RiflePickup : MonoBehaviour
     [Header("Rifle's")]
     public GameObject playerRifle;
     public GameObject pickupRifle;
+    public PlayerPunch playerPunch;
 
     [Header("Rifle Assign Things")]
     public PlayerScript playerScript;
     public float radius = 2.5f;
+    public Animator animator;
+    private float nextTimeToPunch = 0f;
+    public float punchCharge = 15f;
 
     private void Awake()
     {
@@ -19,6 +23,20 @@ public class RiflePickup : MonoBehaviour
 
     private void Update()
     {
+
+        if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToPunch)
+        {
+            animator.SetBool("Punch", true);
+            animator.SetBool("Idle", false);
+            nextTimeToPunch = Time.time + 1f / punchCharge;
+            playerPunch.Punch();
+        }
+        else
+        {
+            animator.SetBool("Punch", false);
+            animator.SetBool("Idle", true);
+        }
+
         if(Vector3.Distance(transform.position, playerScript.transform.position) <= radius)
         {
             if (Input.GetKeyDown("f"))
