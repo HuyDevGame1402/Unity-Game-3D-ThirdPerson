@@ -8,6 +8,7 @@ public class RiflePickup : MonoBehaviour
     public GameObject playerRifle;
     public GameObject pickupRifle;
     public PlayerPunch playerPunch;
+    public GameObject rifleUI;
 
     [Header("Rifle Assign Things")]
     public PlayerScript playerScript;
@@ -19,11 +20,11 @@ public class RiflePickup : MonoBehaviour
     private void Awake()
     {
         playerRifle.SetActive(false);   
+        pickupRifle.SetActive(false);
     }
 
     private void Update()
     {
-
         if(Input.GetButtonDown("Fire1") && Time.time >= nextTimeToPunch)
         {
             animator.SetBool("Punch", true);

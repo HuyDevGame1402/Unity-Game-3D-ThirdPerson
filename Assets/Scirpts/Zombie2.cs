@@ -7,6 +7,7 @@ public class Zombie2 : MonoBehaviour
     private float zombieHealth = 100f;
     private float presentHealth;
     public float giveDamage = 5f;
+    public HealthBar healthBar;
 
     [Header("Zombie Things")]
     public NavMeshAgent zombieAgent;
@@ -36,6 +37,7 @@ public class Zombie2 : MonoBehaviour
     {
         presentHealth = zombieHealth;
         zombieAgent = GetComponent<NavMeshAgent>();
+        healthBar.GiveFullHealth(zombieHealth);
     }
     private void Update()
     {
@@ -95,7 +97,7 @@ public class Zombie2 : MonoBehaviour
     public void ZombieHitDamage(float takeDamage)
     {
         presentHealth -= takeDamage;
-
+        healthBar.SetHealth(presentHealth);
         if (presentHealth <= 0)
         {
             anim.SetBool("Died", true);

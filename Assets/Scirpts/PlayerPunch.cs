@@ -9,8 +9,6 @@ public class PlayerPunch : MonoBehaviour
     public float giveDamageOf = 10f;
     public float punchingRange = 5f;
 
-    [Header("Punch Effects")]
-    public GameObject woodedEffect;
 
     public void Punch()
     {
