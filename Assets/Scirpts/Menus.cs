@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
@@ -64,12 +65,12 @@ public class Menus : MonoBehaviour
 
     public void ReStart()
     {
-
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadMenu()
     {
-        // load menu
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()

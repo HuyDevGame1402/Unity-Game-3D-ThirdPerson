@@ -20,7 +20,7 @@ public class RiflePickup : MonoBehaviour
     private void Awake()
     {
         playerRifle.SetActive(false);   
-        pickupRifle.SetActive(false);
+        pickupRifle.SetActive(true);
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class RiflePickup : MonoBehaviour
             {
                 playerRifle.SetActive(true);
                 pickupRifle.SetActive(false);
-
+                ObjectivesComplete.occurrence.GetObjectivesDone(true, false, false, false);
 
             }
         }

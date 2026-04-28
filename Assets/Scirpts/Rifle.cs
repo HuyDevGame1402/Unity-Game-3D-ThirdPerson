@@ -21,6 +21,7 @@ public class Rifle : MonoBehaviour
     private int presentAmmunition;
     public float reloadingTime = 1.3f;
     private bool setReloading = false;
+    public GameObject dangerZone1;
 
 
     [Header("Rifle Effects")]
@@ -77,6 +78,7 @@ public class Rifle : MonoBehaviour
     {
         if (mag == 0)
         {
+            StartCoroutine(ShowAmmoOut());
             return;
         }
         presentAmmunition--;
@@ -126,6 +128,12 @@ public class Rifle : MonoBehaviour
         presentAmmunition = maximumAmmunition;
         playerScript.playerSpeed = 1.9f;
         playerScript.playerSprint = 3f;
+    }
 
+    private IEnumerator ShowAmmoOut()
+    {
+        dangerZone1.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        dangerZone1.SetActive(false);
     }
 }
