@@ -49,12 +49,17 @@ public class PlayerScript : MonoBehaviour
     }
     private void Update()
     {
+        // check xem player có trên mặt đất không
         onSurface = Physics.CheckSphere(surfaceCheck.position, 
             surfaceDistance, surfaceMask);
+        // nếu ở trên mặt đất và vận tốc y < 0 thì reset lại vận tốc y để tránh việc player bị rơi xuống đất mãi mãi
+        // cũng là kiểu trọng lực
         if (onSurface && velocity.y < 0)
         {
             velocity.y = -2f;
         }
+        // trừ dần vận tốc y với trọng lực để tạo hiệu ứng rơi xuống đất
+        // gọi là trọng lực tác động
         velocity.y += gravity * Time.deltaTime;
         cC.Move(velocity * Time.deltaTime);
 
@@ -109,13 +114,17 @@ public class PlayerScript : MonoBehaviour
     }
     private void Jump()
     {
+        // nếu ấn Jump và đang ở trên mặt đất thì nhảy
         if (Input.GetButtonDown("Jump") && onSurface)
         {
+            // chạy anim jump
             SetAnimJump();
+            // tính toán lực nhảy = căn bậc 2 của khoảng cách nhảy * -2 * trọng lực
             velocity.y = Mathf.Sqrt(jumpRange * -2f * gravity);
         }
         else
         {
+            // ngược lại thì reset anim jump
             ResetAnimJump();
         }
     }
